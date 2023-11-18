@@ -56,7 +56,7 @@ export default function TextForm(props) {
 
             <div className='container my-3'>
                 <h3 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>The summary of the text above: </h3>
-                <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Total words: {text.split(' ').filter((element) => { return element.length !== 0 }).length}, Total characters: {text.length}</p>
+                <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Total words: {text.split(/\s+/).filter((element) => { return element.length !== 0 }).length}, Total characters: {text.length}</p>
                 <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>The user will take {0.008 * text.length} minutes in average to read this.</p>
                 <h3 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Preview:</h3>
                 <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>
