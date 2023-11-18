@@ -40,27 +40,27 @@ export default function TextForm(props) {
                     <textarea className={`form-control bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`} onChange={handleOnChange}
                         value={text} id="myBox" rows="8"></textarea>
                 </div>
-                <button onClick={handleUpClick} className={`btn btn-primary mx-1 my-2 bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+                <button disabled={text.length === 0} onClick={handleUpClick} className={`btn btn-primary mx-1 my-2 bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                     Convert to uppercase
                 </button>
-                <button onClick={handleDownClick} className={`btn btn-primary mx-1 my-2 bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+                <button disabled={text.length === 0} onClick={handleDownClick} className={`btn btn-primary mx-1 my-2 bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                     Convert to lowercase
                 </button>
-                <button onClick={clearText} className={`btn btn-primary mx-1 my-2 bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+                <button disabled={text.length === 0} onClick={clearText} className={`btn btn-primary mx-1 my-2 bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                     Clear text
                 </button>
-                <button onClick={handleSpace} className={`btn btn-primary mx-1 my-2 bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+                <button disabled={text.length === 0} onClick={handleSpace} className={`btn btn-primary mx-1 my-2 bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                     Handle Space
                 </button>
             </div>
 
             <div className='container my-3'>
                 <h3 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>The summary of the text above: </h3>
-                <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Total words: {text.split(' ').length}, Total characters: {text.length}</p>
+                <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Total words: {text.split(' ').filter((element) => { return element.length !== 0 }).length}, Total characters: {text.length}</p>
                 <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>The user will take {0.008 * text.length} minutes in average to read this.</p>
                 <h3 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Preview:</h3>
                 <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>
-                    {text.length > 0 ? text : "Enter something in the box above to preview here"}
+                    {text.length > 0 ? text : "Nothing to preview"}
                 </p>
             </div>
         </>
