@@ -37,7 +37,7 @@ function App() {
 
   return (
     <>
-      <Navbar title="textutils" aboutText="About textutils" mode={mode}
+      <Navbar title="TextEdit" aboutText="About TextEdit" mode={mode}
         toggleMode={toggleMode} />
       <Alert alert={alert} showAlert={showAlert} />
       <div className="container my-2">
